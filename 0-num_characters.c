@@ -2,12 +2,12 @@
 #include <stdarg.h>
 #include <stddef.h>
 /**
- * _printf -  a vadriac function that takes a variable number of arguments
+ * num_chars -  a vadriac function that takes a variable number of arguments
  * @format: pointer to a constant character
  *
  * Return: returns the number of characters
  */
-int _printf(const char *format, ...)
+int num_chars(const char *format, ...)
 {
 	int i, my_chars, length_of_string;
 
