@@ -7,8 +7,8 @@
  * @p: argument to intprint
  * Return: count
  */
-void intprint(long p);
-int _printf(const char *format, ...)
+void intprint(int);
+int conv_d(const char *format, ...)
 {
 	int i, count;
 	va_list args;
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 				}
 				else if (format[i] == 'd')
 				{
-					long p = va_arg(args, int);
+					int p = va_arg(args, int);
 
 					intprint(p);
 					count++;
@@ -62,18 +62,18 @@ int _printf(const char *format, ...)
  *
  * Return: void
  */
-void intprint(long p)
+void intprint(int p)
 {
 	if (p < 0)
 	{
 		_putchar('-');
-		p = p * -1;
+		p = -p;
 	}
 	if (p == 0)
 	{
 		_putchar('0');
 	}
-	if (p / 10)
+	if (p >= 10)
 	{
 		intprint(p / 10);
 	}
