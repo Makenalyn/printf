@@ -7,5 +7,5 @@
 int _putchar(char c);
 int conv_d(const char *format, ...);
 int _printf(const char *format, ...);
-
+int num_chars(const char *format, ...);
 #endif
