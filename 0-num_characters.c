@@ -1,55 +1,71 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stddef.h>
 /**
- * _printf - a vadriac function that takes a variable number of arguments
+ * _printf -  a vadriac function that takes a variable number of arguments
  * @format: pointer to a constant character
  *
  * Return: returns the number of characters
  */
 int _printf(const char *format, ...)
 {
-	int i, count;
+	int i, my_chars, length_of_string;
+
 	va_list args;
+
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	va_start(args, format);
-	
-	count = 0;
+	my_chars = 0;
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			my_chars++;
+		}
+		else
 		{
 			i++;
-			if (format[i] == 'c')
+			if (format[i] == '\0')
+			{
+				break;
+			}
+			if (format[i] == '%')
+			{
+				_putchar(format[i]);
+				my_chars++;
+			}
+			else if (format[i] == 'c')
 			{
 				char p = va_arg(args, int);
 
 				_putchar(p);
-				count++;
+				my_chars++;
 			}
 			else if (format[i] == 's')
 			{
-				char *str = va_arg(args, char *);
+				char *my_string = va_arg(args, char *);
 
-				while (*str != '\0')
+				length_of_string = 0;
+
+				while (my_string[length_of_string] != '\0')
 				{
-					_putchar(*str);
-					str++;
-					count++;
+					_putchar(my_string[length_of_string]);
+					length_of_string++;
 				}
+				my_chars += length_of_string;
 			}
 			else
 			{
 				_putchar('%');
 				_putchar(format[i]);
-				count++;
+				my_chars += 2;
 			}
 		}
-		else
-		{
-			_putchar(format[i]);
-			count++;
-		}
-		count++;
 	}
 	va_end(args);
-	return (count);
+	return (my_chars);
 }
