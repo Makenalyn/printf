@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 int _putchar(char c);
-int conv_d(const char *format, ...);
+void printint(int);
 int _printf(const char *format, ...);
 int num_chars(const char *format, ...);
 #endif
