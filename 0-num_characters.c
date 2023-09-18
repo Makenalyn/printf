@@ -7,7 +7,7 @@
  *
  * Return: returns the number of characters
  */
-int num_chars(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i, my_chars, length_of_string;
 
@@ -58,6 +58,13 @@ int num_chars(const char *format, ...)
 				}
 				my_chars += length_of_string;
 			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				int p = va_arg(args, int);
+
+				printint(p);
+				my_chars++;
+			}
 			else
 			{
 				_putchar('%');
@@ -68,4 +75,21 @@ int num_chars(const char *format, ...)
 	}
 	va_end(args);
 	return (my_chars);
+}
+void printint(int p)
+{
+	if (p < 0)
+	{
+		_putchar('-');
+		p = -p;
+	}
+	if (p == '0')
+	{
+		_putchar('0');
+	}
+	if (p >= 10)
+	{
+		printint(p / 10);
+	}
+	_putchar(p % 10 + '0');
 }
