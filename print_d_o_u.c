@@ -3,7 +3,7 @@
 /**
  * print_d - function prints format specifier d
  * @d: parameter
- *
+ * @c: parameter
  * Return: void
  */
 int print_d(long d, int c)
