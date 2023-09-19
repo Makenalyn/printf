@@ -25,16 +25,16 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			if (format[i] == 'c' || format[i] == 'd')
+			if (format[i] == 'c' || format[i] == 'd' || format[i] == 's')
 				args_count += sortfunc(format[i])(args);
 			else if (format[i] == '%')
 			{
 				_putchar(format[i]);
 				args_count++;
 			}
-			else if (format[i] == 's')
+			else if (format[i] == '\0')
 			{
-				args_count += sortfunc(format[i])(args);
+				break;
 			}
 			else
 			{
