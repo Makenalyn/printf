@@ -45,53 +45,34 @@ void print_u(unsigned int u)
 }
 /**
  * print_o - prints octal value
- * @o: parameter
+ * @octal: parameter
+ * @k: counter
  *
  * Return: void
  */
-void print_o(long o)
+unsigned long print_o(unsigned long octal, unsigned long k)
 {
 	int oct_holder[100];
 
-	int index, rev;
+	int p, m;
 
-	index = 0;
+	p = 0;
 
-	while (o != 0)
+	while (octal != 0)
 	{
-		oct_holder[index] = o % 8;
+		oct_holder[p] = octal % 8;
 
-		o = o / 8;
+		octal = octal / 8;
 
-		index++;
+		p++;
 	}
-	for (rev = index - 1; rev > 0; rev--)
+	for (m = p - 1; m >= 0; m--)
 	{
-		char rev_octal = oct_holder[index] + '0';
+		char reversed_octal_n = oct_holder[m] + '0';
 
-		_putchar(rev_octal);
+		_putchar(reversed_octal_n);
 	}
+
+	return (k + 1);
 }
-int  my_binary(unsigned int  my_num, int counter)
-{
-	int n;
-	int my_bit_store[32];
 
-	if (my_num == 0)
-	{
-		_putchar(my_num + '0');
-		counter++;
-		return (counter);
-	}
-	for (n = 0; n < 32; n++)
-        {
-                my_bit_store[n] = my_num % 2;
-                my_num /= 2;
-        }
-        for ( n = 31; n >= 0; n--)
-	{
-		_putchar(my_bit_store[n] + '0');
-		counter++;
-	}
-	return (counter);
-}
