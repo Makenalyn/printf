@@ -14,9 +14,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	args_count = 0;
 	if (format == NULL)
-	{
 		return (-1);
-	}
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -28,13 +26,15 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == 'c' || format[i] == 'd')
-			{
 				args_count += sortfunc(format[i])(args);
-			}
 			else if (format[i] == '%')
 			{
 				_putchar(format[i]);
 				args_count++;
+			}
+			else if (format[i] == 's')
+			{
+				args_count += sortfunc(format[i])(args);
 			}
 			else
 			{
@@ -44,8 +44,8 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	return (args_count);
 	va_end(args);
+	return (args_count);
 }
 /**
  * sortfunc - sorts format handlers
@@ -62,6 +62,10 @@ int (*sortfunc(char fmtspecifier))(va_list args)
 	else if (fmtspecifier == 'd')
 	{
 		return (&formatD);
+	}
+	else if (fmtspecifier == 's')
+	{
+		return (&formatS);
 	}
 	else
 	{
@@ -97,4 +101,28 @@ int formatD(va_list args)
 	c = print_d(d, 0);
 
 	return (c);
+}
+/**
+ * formatS - a function that handles format d
+ * @args: arguments
+ *
+ * Return: returns an integer
+ */
+int formatS(va_list args)
+{
+	char *my_string;
+	int my_chars;
+
+	my_chars = 0;
+	my_string = va_arg(args, char *);
+	if (my_string != NULL)
+	{
+		while (*my_string)
+		{
+			_putchar(*my_string);
+			my_chars++;
+			my_string++;
+		}
+	}
+	return (my_chars);
 }

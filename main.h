@@ -12,5 +12,5 @@ int _printf(const char *format, ...);
 int (*sortfunc(char fmtspecifiers))(va_list args);
 int formatC(va_list args);
 int formatD(va_list args);
-
+int formatS(va_list args);
 #endif
