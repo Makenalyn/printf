@@ -132,19 +132,3 @@ int formatS(va_list args)
 	}
 	return (my_chars);
 }
-/**
- * formatB - function that takes a variable list of arguments
- * @args:  list of arguments
- *
- * Return: returns number of characters
- */
-int formatB(va_list args)
-{
-	int z;
-	
-	int g = va_arg(args, int);
-
-	z = my_binary(g,0);
-
-	return (z);
-}
