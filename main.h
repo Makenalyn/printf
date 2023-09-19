@@ -6,13 +6,11 @@
 
 int _putchar(char c);
 int print_d(long, int);
-void print_o(long);
 void print_u(unsigned int);
 int _printf(const char *format, ...);
 int (*sortfunc(char fmtspecifiers))(va_list args);
 int formatC(va_list args);
 int formatD(va_list args);
 int formatS(va_list args);
-int formatB(va_list args);
-int  my_binary(unsigned int  my_num, int counter);
+
 #endif
