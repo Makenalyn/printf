@@ -117,7 +117,7 @@ int formatS(va_list args)
 	my_string = va_arg(args, char *);
 	if (my_string != NULL)
 	{
-		while (*my_string)
+		while (*my_string != '\0')
 		{
 			_putchar(*my_string);
 			my_chars++;
