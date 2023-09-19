@@ -13,4 +13,6 @@ int (*sortfunc(char fmtspecifiers))(va_list args);
 int formatC(va_list args);
 int formatD(va_list args);
 int formatS(va_list args);
+int formatB(va_list args);
+int  my_binary(unsigned int  my_num, int counter);
 #endif

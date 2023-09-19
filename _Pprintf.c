@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c' || format[i] == 'd' || format[i] == 's')
 				args_count += sortfunc(format[i])(args);
-			else if (format[i] == 'i')
+			else if (format[i] == 'i' || format[i] == 'b')
 				args_count += sortfunc(format[i])(args);
 			else if (format[i] == '%')
 			{
@@ -68,6 +68,10 @@ int (*sortfunc(char fmtspecifier))(va_list args)
 	else if (fmtspecifier == 's')
 	{
 		return (&formatS);
+	}
+	else if (fmtspecifier == 'b')
+	{
+		return (&formatB);
 	}
 	else
 	{
@@ -127,4 +131,20 @@ int formatS(va_list args)
 		}
 	}
 	return (my_chars);
+}
+/**
+ * formatB - function that takes a variable list of arguments
+ * @args:  list of arguments
+ *
+ * Return: returns number of characters
+ */
+int formatB(va_list args)
+{
+	int z;
+	
+	int g = va_arg(args, int);
+
+	z = my_binary(g,0);
+
+	return (z);
 }

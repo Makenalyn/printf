@@ -72,3 +72,26 @@ void print_o(long o)
 		_putchar(rev_octal);
 	}
 }
+int  my_binary(unsigned int  my_num, int counter)
+{
+	int n;
+	int my_bit_store[32];
+
+	if (my_num == 0)
+	{
+		_putchar(my_num + '0');
+		counter++;
+		return (counter);
+	}
+	for (n = 0; n < 32; n++)
+        {
+                my_bit_store[n] = my_num % 2;
+                my_num /= 2;
+        }
+        for ( n = 31; n >= 0; n--)
+	{
+		_putchar(my_bit_store[n] + '0');
+		counter++;
+	}
+	return (counter);
+}
