@@ -11,7 +11,7 @@ void print_d(int d)
 	if (d < 0)
 	{
 		_putchar('-');
-		p = -p;
+		d = -d;
 	}
 	if (d == 0)
 	{
@@ -19,7 +19,7 @@ void print_d(int d)
 	}
 	if (d >= 10)
 	{
-		printint(d / 10);
+		print_d(d / 10);
 	}
 	_putchar(d % 10 + '0');
 }
@@ -37,7 +37,7 @@ void print_u(unsigned int u)
 	}
 	if (u >= 10)
 	{
-		print_u((u / 10);
+		print_u(u / 10);
 	}
 	_putchar(u % 10 + '0');
 }
