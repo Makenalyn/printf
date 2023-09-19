@@ -9,6 +9,4 @@ void print_d(int);
 void print_o(long);
 void print_u(unsigned int);
 int _printf(const char *format, ...);
-int num_chars(const char *format, ...);
-
 #endif
