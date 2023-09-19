@@ -1,17 +1,18 @@
 #include "main.h"
 /**
- * printf - a variadic function that takes in variable arguments
- *
- * Return:returns the number of characters
+ * _printf - a variadic function that takes in variable arguments
+ *@format: a pointer to a character string
+ * Return: returns the number of characters
  */
 int _printf(const char *format, ...)
 {
-	int my_chars,k, length_of_string;
+	int my_chars, k, length_of_string;
 	va_list num_of_args;
+
 	if (format == NULL)
 		return (-1);
-	va_start(num_of_args,format);
-	for(k = 0; format[k] != '\0'; k++)
+	va_start(num_of_args, format);
+	for (k = 0; format[k] != '\0'; k++)
 	{
 		if (format[k] != '%')
 		{
