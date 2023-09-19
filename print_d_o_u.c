@@ -6,11 +6,12 @@
  *
  * Return: void
  */
-void print_d(int d)
+int print_d(long d, int c)
 {
 	if (d < 0)
 	{
 		_putchar('-');
+		c++;
 		d = -d;
 	}
 	if (d == 0)
@@ -19,9 +20,11 @@ void print_d(int d)
 	}
 	if (d >= 10)
 	{
-		print_d(d / 10);
+		c = print_d(d / 10, c);
 	}
 	_putchar(d % 10 + '0');
+
+	return (c + 1);
 }
 /**
  * print_u - prints unsigned int
