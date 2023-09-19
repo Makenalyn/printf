@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c' || format[i] == 'd' || format[i] == 's')
 				args_count += sortfunc(format[i])(args);
+			else if (format[i] == 'i')
+				args_count += sortfunc(format[i])(args);
 			else if (format[i] == '%')
 			{
 				_putchar(format[i]);
@@ -59,7 +61,7 @@ int (*sortfunc(char fmtspecifier))(va_list args)
 	{
 		return (&formatC);
 	}
-	else if (fmtspecifier == 'd')
+	else if (fmtspecifier == 'd' || fmtspecifier == 'i')
 	{
 		return (&formatD);
 	}
