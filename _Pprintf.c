@@ -126,5 +126,12 @@ int formatS(va_list args)
 			my_string++;
 		}
 	}
+	else
+	{
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+	}
 	return (my_chars);
 }
