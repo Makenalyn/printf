@@ -5,7 +5,7 @@
  * @d: parameter
  *
  * Return: void
- */ 
+ */
 int print_d(long d, int c)
 {
 	if (d < 0)
